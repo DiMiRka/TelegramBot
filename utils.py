@@ -20,6 +20,7 @@ class Converter:
 
         quote, base, amount = val
         quote, base = quote.lower(), base.lower()
+        quote, base = quote.capitalize(), base.capitalize()
 
         if quote == base:
             raise APIException('Невозможно конвертировать одинаковые валюты')
@@ -34,7 +35,7 @@ class Converter:
             raise APIException('Третьим параметром введите целое число')
 
         a = requests.get(
-            url=f'https://api.apilayer.com/fixer/convert?to={keys[base]}&from={keys[quote]}&amount={con_sum}',
+            url=f'https://api.apilayer.com/fixer/convert?to={keys[base]}&from={keys[quote]}&amount={amount}',
             headers=apikey).json()
         result = a.get('result')
         return quote, base, amount, result
