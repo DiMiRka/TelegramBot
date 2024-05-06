@@ -8,4 +8,8 @@ keys = {
     'Франк': 'CHF',
     'Юань': 'CNY'
 }
+con_keys = keys.copy()
+auto_conv = []
+counter = 0
+currency = ('convert,' + ','.join(keys.keys())).split(',')
 apikey = {'apikey': 'CpNPLsHLH3OBTXZ9ZISVNMGAJMnfOqeV'}
